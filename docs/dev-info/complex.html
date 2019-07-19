@@ -1,0 +1,136 @@
+<html>
+	<head>
+	<title>IcyCraft CE</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="top">
+<p><h1>IcyCraft CE</h1>
+<a class="whereami">Complex Behaviors</a>
+</p>
+</div>
+<div class="main">
+	<p>
+		Complex behaviors are a form of bytecode instruction.<br>
+	</p>
+	<p>
+		There are 512 bytes of 2b offsets for each tileID's complex behavior.<br>
+		These offsets are of the complex behavior code.<br><br>
+		The 2b after the offset table is the length in bytes of the complex behavior code.<br>
+		<hr>
+		Each complex behavior code ends with a null.<br>
+		The command byte is interpreted by it's specific bits.<br>
+		The higher bit's argument bytes come first, and are applied first.<br>
+		If a command is conditional, and it is false, the rest of the commands will not be applied.<br>
+		<br>
+		<table>
+			<caption><i>THESE CODES ARE SUBJECT TO CHANGE IN VERSION 3</i></caption>
+			<tr>
+				<th>
+					bit no. (high->low)
+				</th>
+				<th>
+					[do if] False
+				</th>
+				<th>
+					[do if] True
+				</th>
+			</tr>
+			<tr>
+				<td>
+					bit 7
+				</td>
+				<td>
+					(NO-OP)
+				</td>
+				<td>
+					Do if randInt(0,X) is zero
+				</td>
+			</tr>
+			<tr>
+				<td>
+					bit 6
+				</td>
+				<td>
+					(NO-OP)
+				</td>
+				<td>
+					 Do if next to tileID
+				</td>
+			</tr>
+			<tr>
+				<td>
+					bit 5
+				</td>
+				<td>
+					(NO-OP)
+				</td>
+				<td>
+					Set this tile to tileID
+				</td>
+			</tr>
+			<tr>
+				<td>
+					bit 4
+				</td>
+				<td>
+					(NO-OP)
+				</td>
+				<td>
+					(NO-OP)
+				</td>
+			</tr>
+			<tr>
+				<td>
+					bit 3
+				</td>
+				<td>
+					Skip next bit.
+				</td>
+				<td>
+					Interpret next bit.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					bit 2
+				</td>
+				<td>
+					remove item,amount from player inventory.
+				</td>
+				<td>
+					remove item,amount from the container at this tile.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					bit 1
+				</td>
+				<td>
+					Skip next bit.
+				</td>
+				<td>
+					Interpret next bit.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					bit 0
+				</td>
+				<td>
+					add item,amount to player inventory.
+				</td>
+				<td>
+					add item,amount to the container at this tile.
+				</td>
+			</tr>
+		</table>
+		<br>
+	</p>
+</div>
+<div class="left">
+</div>
+<div class="right">
+</div>
+</body>
+</html>

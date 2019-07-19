@@ -1,0 +1,152 @@
+<html>
+	<head>
+	<title>IcyCraft CE</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="top">
+<p><h1>IcyCraft CE</h1>
+<a class="whereami">Behaviors</a>
+</p>
+</div>
+<div class="main">
+	<p>
+		The behavior pack is essentially a series of Look-up-Tables.<br>
+	</p>
+	<p>
+		<h2>--MODDING POSSIBILITIES--</h2>
+		There is a lot that a Tile can do, but limited by the number of LUTs.<br>
+		<br>
+		A block/item can be a wall or floor.<br>
+		It can be a ladder up or down or not at all.<br>
+		It can be a chest or crafting method, or something even more interactable. (COMING SOON)<br>
+		It can be placeable or not, breakable or not.<br>
+		Break times are variable.<br>
+		It can become an entirely different tile when placed downward versus upward.<br>
+		It can drop any tile, and anywhere from 1 to 64 of it!<br>
+		(I might change those numbers to 0-63 instead. So I can use the upper two bits for more cool stuff!)<br>
+		It can update into any tile in any time from 1 in 0 (always) to 1 in 255! (almost never)<br>
+		It can satisfy hunger, or be inedible.<br>
+		It can have any name you wish up to 15 characters, followed by a null.<br>
+		<br>
+		Biomes can be spawned at specific layers, and have a palette which the generator chooses from.<br>
+		Pro tip: Put a tile more than once in that list to have it spawn more frequently.<br>
+		A biome can even be spawned more or less frequently: 1 in X chance to spawn for every 3 in 4 tiles. (X is the first byte)<br>
+		Each biome is 64 bytes in size, and has 62 bytes availible to be randomly placed in a chunk.<br>
+		<br>
+		Structures can be spawned at specific layers, and have a size of up to 8x8 tiles.<br>
+		The first two bytes are the minimum and maximum layers in which the structure will spawn. (This may or may not work 100% yet)<br>
+		The next byte is the chance (1/X) for the structure to spawn in a given chunk.<br>
+		The fourth byte is the size of the structure. (Y*16+X)<br>
+		Each structure is 128 bytes, so expect more customization stuff in the future! ;)<br>
+		<br>
+		Any texture in the game can be changed, including the heart sprite and the player sprite!<br>
+		For tile textures, see "Textures.txt".<br>
+		Otherwise, see the "HUD SPRITES" heading.<br>
+		<br>
+		Anything can be crafted into anything else in any method of you choice, if you make it so!<br>
+		<br>
+		And now it is possible to have a tile update based on adjacent tiles!<br>
+		Also you can have a tile place an item, amount into the player inventory, and/or the tile!<br>
+		And of course, you can remove items as well.<br>
+		
+	</p><p>
+		<h2>--BEGIN ACTUAL DOC--</h2>
+		The recipes are now stored in the same appvar as the rest of the behaviors.<br>
+		There are 256 tiles, each tile gets its own entry.<br>
+		It is ordered as follows:<br>
+		<br>
+		<br>
+		<h2>--MAIN--</h2>
+		256 bytes: block/item flags<br>
+		[high] bit 7 - if set, the player will not be able to move onto this tile<br>
+		       bit 6 - if set, this tile will move the player up or down<br>
+		       bit 5 - if the above is set: set=up, unset=down<br>
+		       bit 4 - if set, this tile can be interacted with<br>
+		       bit 3/2 - 00=chest, 01=crafting table, 10=furnace, 11=Other (given in the Tile crafting method LUT)<br>
+		       bit 1 - if set, this block can be placed<br>
+		[low]  bit 0 - if set, this block can be broken<br>
+		<br>
+		256 bytes: tile downward place<br>
+		<br>
+		256 bytes: tile upward place<br>
+		<br>
+		256 bytes: tile damage values (if the block is placeable, will act as value needed to break. Otherwise it acts as a tool)<br>
+		<br>
+		1024 bytes: tile drop and update values<br>
+		      First byte: drop item<br>
+		      Second byte: drop amount<br>
+		      Third byte: update to<br>
+		      Fourth byte: update chance (1 in X)<br>
+		<br>
+		<br>
+		64 bytes: Z above 64 tile spawning<br>
+		64 bytes: Z at 64 tile spawning<br>
+		64 bytes: Z below 64 tile spawning<br>
+		64 bytes: Z below 24 tile spawning<br>
+		The above 4 lines: First byte is default 'tile broken' tile.<br>
+		                   The second byte is the defult generated tile.<br>
+		                   Followed by up to 61 different BiomeIDs to randomly choose between,<br>
+		                   and finally, a null.<br>
+		<br>
+		4096 bytes: TileID names. Each one is [up to] a 15 character string, followed by a null.<br>
+		<br>
+		288 bytes: Creative inventories. Each one is 72 bytes and there can be up to 4.<br>
+		           Every two bytes is: Item, Amount.<br>
+		<br>
+		1 byte: Amount of Biomes. This is also the number of structures<br>
+		64 bytes: Each Biome is a list of TileIDs to randomly choose between and place on roughly 3/4 of the tiles.<br>
+		          If the first byte is 0xFF, then it will not initially fill with the default generation tile.<br>
+		<br>
+		1 byte: Number of structures<br>
+		128 bytes: Each structure starts with 1 byte minimum layer, 1 byte maximum layer,<br>
+		           1 byte spawn frequency, (1 in X chance to spawn) and 1 byte structure size.<br>
+		           This size byte is actually broken down into two nibbles, where each one must be between 1 and 8.<br>
+		           IcyCraft will default to 8 if higher, and won't put the structure if zero.<br>
+		           NOTE: A structure can spawn in any biome. Air does not count.<br>
+		<br>
+		<br>
+		256 bytes: Tile hunger saturation<br>
+		<br>
+		256 bytes: Tile crafting method<br>
+		<br>
+		<br>
+		<h2>--HUD SPRITES--</h2>
+		8x8 sprites: player sprite<br>
+		             HP sprite<br>
+		<br>
+		<br>
+		<h2>--RECIPES--<br></h2>
+		Each recipe is 16 bytes long.<br>
+		There must be 2 null bytes at the end of the recipes, otherwise the player can scroll past it in the crafting menu, causing unexpected effects!<br>
+		<br>
+		Each recipe starts with 1 byte determining how it must be crafted.<br>
+		00 can be crafted from any method<br>
+		Otherwise, it can only be crafted from the corresponding crafting method<br>
+		<br>
+		In the default resource pack:<br>
+		    01 can only be crafted from a crafting table<br>
+		    02 can only be crafted from a furnace<br>
+		<br>
+		<br>
+		The following 2 bytes are the resulting TileID and amount to give.<br>
+		The next 12 bytes are the ingredients. TileID, amount.<br>
+		NOTE: any recipe with an ingredient requiring more than 64 of an item CANNOT be crafted.<br>
+		<br>
+		<h2>--COMPLEX BEHAVIORS--</h2>
+		See <a href="complex.html">complex.html</a> for details
+		<h2>--BUILT-IN TEXTURES--</h2>
+		This is the same data as would be in a texture pack appvar, but appended to the behavior pack.<br>
+		256, 66b sprites.<br>
+		First 3 bytes of the behavior pack data are the offset of these textures.<br>
+		<h2>--Example--</h2>
+		In the "default_resource_pack_source" folder, there will be a program called "ICYBVSRC".<br>
+		This is the ICE source file for the default behavior pack<br>
+	</p>
+</div>
+<div class="left">
+</div>
+<div class="right">
+</div>
+</body>
+</html>

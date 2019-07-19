@@ -1,0 +1,6 @@
+Textures for IcyCraft are most easily made using TileMapE-v2
+Just make a tileset in TileMapE-v2 and call it "ICYtxp00"
+
+If you would like to use another software to make the tileset, make sure that the sprites are 8x8 and 66 bytes long each,
+formatted as: X size, Y size, x*y pixels.
+Otherwise IcyCraft will not work as expected.

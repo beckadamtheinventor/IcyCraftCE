@@ -1,0 +1,101 @@
+00 Nothing
+01 Stone floor
+02 Grass floor
+03 Dirt floor
+04 Sand floor
+05 Gravel floor
+06 Cobble floor
+07 Wood plank floor
+08 Stone wall
+09 Dirt wall
+0A Gravel wall
+0B Cobble wall
+0C Wood plank wall
+0D Wood log wall
+0E Crafting table
+0F Furnace
+10 Coal ore
+11 Iron ore
+12 Gold ore
+13 Lapis ore
+14 Redstone ore
+15 Diamond ore
+16 Lava floor
+17 Water floor
+18 Ladder up
+19 Ladder down
+1A E/W Door
+1B N/S Door
+1C Leaves
+1D Chest
+1E Stone bricks wall
+1F Stone bricks floor
+20 Poppy
+21 Red concrete
+22 Blue concrete
+23 Purple concrete
+24 White concrete
+25 Light blue concrete
+26 Black concrete
+27 Chiseled stone bricks
+28 Carved wood log
+29 Sandstone wall
+2A Sandstone floor
+2B Quartz ore
+2C Quartz floor
+2D Quartz wall
+2E Chiseled Quartz
+2F Hard cobble wall
+30 Red cobble wall
+31 Red cobble floor
+32 Emerald ore
+33 Silver ore
+34 Rose quartz ore
+35 Copper ore
+36 Emerald block
+37 Silver block
+38 Rose quartz block
+39 Copper block
+3A Bread
+3B Harvester
+...
+...
+40 Coal
+41 Iron ingot
+42 Gold ingot
+43 Lapis
+44 Redtone
+45 Diamond
+46 Stick
+47 Apple
+48 Wood pick
+49 Stone pick
+4A Iron pick
+4B Gold pick
+4C Diamond pick
+4D Coal block
+4E Iron block
+4F Gold block
+50 Lapis block
+51 Redstone block
+52 Diamond block
+53 Gold nugget
+54 Quartz
+55 Sapling
+56 Bush sapling
+57 Wheat growth stage 0
+58 Wheat growth stage 1
+59 Wheat growth stage 2
+5A Wheat growth stage 3
+5B Wheat seeds
+5C Tall grass
+5D Grain
+5E Wheat
+5F Hay bale
+60 Emerald
+61 Silver ingot
+62 Rose quartz
+63 Copper ingot
+...
+...
+191 Insta-Pick

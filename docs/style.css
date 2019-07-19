@@ -1,0 +1,79 @@
+body {
+	text-align: center;
+	color: #600000;
+	background-color: #8CF1A9;
+}
+h2 {
+	border-top: 1px solid black;
+}
+a {
+	color: #202020;
+}
+a:hover {
+	color: #000000;
+}
+a:visited {
+	color: #333332;
+}
+a.whereami{
+	color: #780000;
+	font-size: 37;
+}
+a.wip{
+	color: #E00000;
+}
+div.main{
+	position: fixed;
+	overflow: auto;
+	left: 10%;
+	right: 10%;
+	top: 20%;
+	bottom: 0;
+}
+div.top{
+	position: fixed;
+	overflow: hidden;
+	left: 10%;
+	right: 10%;
+	top: 0;
+	height: 19%;
+}
+div.left{
+	position: fixed;
+	overflow: hidden;
+	width: 10%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #007421;
+	color: black;
+	border-right: 1px solid black;
+}
+div.right{
+	position: fixed;
+	overflow: hidden;
+	width: 10%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background-color: #007421;
+	color: black;
+	border-right: 1px solid black;
+}
+hr {
+	border: 1px solid black;
+}
+table {
+	position: relative;
+}
+td,th,tr {
+	text-align: justify;
+	border: 1px solid black;
+}
+table {
+	width: 100%;
+}
+td {
+	position: relative;
+	width: 25%;
+}
