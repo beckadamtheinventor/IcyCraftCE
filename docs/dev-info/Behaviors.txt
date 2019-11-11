@@ -43,6 +43,8 @@ There are 256 tiles, each tile gets its own entry.
 It is ordered as follows:
 
 
+--BUILT-IN-TEXTURES--
+3 byte value. If zero, this is purely a behavior pack. Otherwise this is the file offset that the texture data occurs at.
 --MAIN--
 256 bytes: block/item flags
 [high] bit 7 - if set, the player will not be able to move onto this tile

@@ -58,6 +58,8 @@
 39 Copper block
 3A Bread
 3B Harvester
+3C Cobblemaker
+3D Wheat funnel
 ...
 ...
 40 Coal
@@ -96,6 +98,15 @@
 61 Silver ingot
 62 Rose quartz
 63 Copper ingot
+64 Pink Terracotta
+65 Red Terracotta
+66 Brown Terracotta
 ...
 ...
-191 Insta-Pick
+80 Hopper North
+81 Hopper South
+82 Hopper West
+83 Hopper East
+...
+...
+BF Insta-Pick

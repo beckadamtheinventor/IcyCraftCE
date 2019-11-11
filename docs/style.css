@@ -1,7 +1,7 @@
 body {
 	text-align: center;
 	color: #600000;
-	background-color: #8CF1A9;
+	background-color: #3AA;
 }
 h2 {
 	border-top: 1px solid black;
@@ -38,27 +38,40 @@ div.top{
 	top: 0;
 	height: 19%;
 }
-div.left{
+div.left, div.right {
 	position: fixed;
 	overflow: hidden;
 	width: 10%;
 	height: 100%;
 	top: 0;
+}
+div.dirt{
+	top: 20%;
+	height: 40%;
+	background-image: url("dirt.png");
+	background-repeat: repeat;
+}
+div.stone{
+	top: 60%;
+	height: 40%;
+	background-image: url("stone.png");
+	background-repeat: repeat;
+}
+div.grass{
+	top: 0;
+	height: 20%;
+	background-image: url("grass.png");
+	background-repeat: repeat;
+}
+div.left {
 	left: 0;
-	background-color: #007421;
 	color: black;
 	border-right: 1px solid black;
 }
 div.right{
-	position: fixed;
-	overflow: hidden;
-	width: 10%;
-	height: 100%;
-	top: 0;
 	right: 0;
-	background-color: #007421;
 	color: black;
-	border-right: 1px solid black;
+	border-left: 1px solid black;
 }
 hr {
 	border: 1px solid black;
